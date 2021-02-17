@@ -4,8 +4,11 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from './pages/home/Home'
+
 import About from './pages/about/About'
+import CodeOfConduct from './pages/CodeOfConduct/CodeOfConduct'
+import Home from './pages/home/Home'
+
 import './App.css'
 
 export default function App() {
@@ -13,7 +16,10 @@ export default function App() {
     <Router>
       <div>
         <Switch>
-          <Route path="/about">
+          <Route exact path="/code-of-conduct">
+            <CodeOfConduct />
+          </Route>
+          <Route exact path="/about">
             <About />
           </Route>
           <Route path="/">
