@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/website/static/css/main.83b75107.chunk.css",
+    "main.js": "/website/static/js/main.f1301040.chunk.js",
+    "main.js.map": "/website/static/js/main.f1301040.chunk.js.map",
+    "runtime-main.js": "/website/static/js/runtime-main.5bc4208e.js",
+    "runtime-main.js.map": "/website/static/js/runtime-main.5bc4208e.js.map",
+    "static/js/2.646a313a.chunk.js": "/website/static/js/2.646a313a.chunk.js",
+    "static/js/2.646a313a.chunk.js.map": "/website/static/js/2.646a313a.chunk.js.map",
+    "static/js/3.07f2426e.chunk.js": "/website/static/js/3.07f2426e.chunk.js",
+    "static/js/3.07f2426e.chunk.js.map": "/website/static/js/3.07f2426e.chunk.js.map",
+    "index.html": "/website/index.html",
+    "static/css/main.83b75107.chunk.css.map": "/website/static/css/main.83b75107.chunk.css.map",
+    "static/js/2.646a313a.chunk.js.LICENSE.txt": "/website/static/js/2.646a313a.chunk.js.LICENSE.txt",
+    "static/media/instagram.7d973914.svg": "/website/static/media/instagram.7d973914.svg",
+    "static/media/logo.ac9907ff.svg": "/website/static/media/logo.ac9907ff.svg",
+    "static/media/whatsapp.be8b84bc.svg": "/website/static/media/whatsapp.be8b84bc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5bc4208e.js",
+    "static/js/2.646a313a.chunk.js",
+    "static/css/main.83b75107.chunk.css",
+    "static/js/main.f1301040.chunk.js"
+  ]
+}
