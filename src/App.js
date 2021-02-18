@@ -17,7 +17,7 @@ export default function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/join">
+          <Route path="/join">
             <Redirect to="/code-of-conduct" />
           </Route>
           <Route exact path="/code-of-conduct">
