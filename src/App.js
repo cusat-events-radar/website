@@ -2,10 +2,11 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 
-import About from './pages/about/About'
+// import About from './pages/about/About'
 import CodeOfConduct from './pages/CodeOfConduct/CodeOfConduct'
 import Home from './pages/home/Home'
 
@@ -16,12 +17,15 @@ export default function App() {
     <Router>
       <div>
         <Switch>
+          <Route exact path="/join">
+            <Redirect to="/code-of-conduct" />
+          </Route>
           <Route exact path="/code-of-conduct">
             <CodeOfConduct />
           </Route>
-          <Route exact path="/about">
+          {/* <Route exact path="/about">
             <About />
-          </Route>
+          </Route> */}
           <Route path="/">
             <Home />
           </Route>

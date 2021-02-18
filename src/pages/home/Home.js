@@ -161,7 +161,10 @@ let StyledPage = styled.div`
       background-color: black;
       color: white;
       box-shadow: 0 0px 100px rgba(0, 255, 0, 0.535);
-      border: 1.5px solid #39b54a; 
+      border: 1.5px solid #39b54a;
+      img{
+        filter: invert(1);
+      } 
 
     }
   }
