@@ -7,6 +7,6 @@ html,body{
   font-family: 'Poppins', sans-serif;
 }
 
-body #magicMouseCursor{
+body #magicMouseCursor,#magicPointer{
   mix-blend-mode: difference;
 }

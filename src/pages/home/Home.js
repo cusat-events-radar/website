@@ -16,9 +16,9 @@ export default function Home() {
           glareMaxOpacity={0.40}
           scale={0.9}
           gyroscope={true}
-          tiltAngleXInitial={0}
+          tiltAngleXInitial={-90}
           tiltAngleYInitial={0}
-          tiltMaxAngleX={8}
+          tiltMaxAngleX={0}
           tiltMaxAngleY={8}
           glarePosition="all"
         >
@@ -35,13 +35,13 @@ export default function Home() {
           <p className="home-sub-header">Events and opportunities in and out of CUSAT updated daily.</p>
           <div className="home-buttons-container">
             <button
-              className="home-buttons"
+              className="home-buttons magic-hover magic-hover__square"
               onClick={()=>{window.location.href = 'https://www.instagram.com/cusat_events_radar'}}
             >
               <img src={instagramIcon} alt=""/>
               Browse Events on Instagram
             </button>
-            <Link className="home-buttons"  to="/code-of-conduct">
+            <Link className="home-buttons magic-hover magic-hover__square"  to="/code-of-conduct">
               
                 <img src={whatsAppIcon} alt=""/>
                 Join WhatsApp Group
@@ -119,7 +119,7 @@ let StyledPage = styled.div`
     100%{background-position:0% 48%}
   }
   .home-parallax-tilt{
-    padding: 25px;
+    padding: 50px 25px 35px 25px;
     box-sizing: border-box;
     transform-style: preserve-3d;
     transform: translateZ(-100px);
@@ -136,10 +136,10 @@ let StyledPage = styled.div`
     border-radius: 50%;
     transition: all 0.5s ease-in-out;
     transform: translateZ(50px);
+    transform-style: preserve-3d;
     :hover{
       box-shadow: 0 0px 100px rgba(0, 255, 0, 0.535);
       transform: translateZ(20px);
-
     }
   }
   .home-welcome{
@@ -149,7 +149,7 @@ let StyledPage = styled.div`
     font-weight: 500;
     font-size: 30;
     transform: translateZ(50px);
-    
+    transform-style: preserve-3d;
   }
   .home-header{
     margin: 0;
@@ -160,7 +160,7 @@ let StyledPage = styled.div`
     line-height: 60px;
     text-shadow: 0 5px 20px rgba(0, 0, 0, 0.446);
     transform: translateZ(50px);
-
+    transform-style: preserve-3d;
   }
   .home-sub-header{
     font-size: 20px;
@@ -171,7 +171,7 @@ let StyledPage = styled.div`
     margin-left: auto;
     margin-right: auto;
     transform: translateZ(10px);
-
+    transform-style: preserve-3d;
     /* white-space: nowrap;   */
   }
   .LinkElement{
@@ -207,7 +207,7 @@ let StyledPage = styled.div`
       color: white;
       box-shadow: 0 0px 100px rgba(0, 255, 0, 0.535);
       border: 1.5px solid #39b54a;
-      transform: translateZ(55px);
+      transform: translateZ(80px) translateY(-10px);
       transform-style: preserve-3d;
 
       img{

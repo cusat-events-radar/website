@@ -24,12 +24,25 @@ let CodeOfConduct = () => {
     } 
 
     let selectGroups = () =>{
-        let maxIndex = groups.length
-        let randomIndex = generateRandomIndex(0,maxIndex)
-        setSelectedGroup(groups[randomIndex])
+        let localStorageRaw= localStorage.getItem('cusat-events-radar-data');
+        let localStorageData= JSON.parse(localStorageRaw) 
+        setIsGroupAlreadyAssigned(false)
+        if(localStorageRaw!==null && localStorageData.isAlreadyAssigned===true){
+            setIsGroupAlreadyAssigned(true)
+            setSelectedGroup(localStorageData)
+            console.log(localStorageData);
+        }else{
+            setIsGroupAlreadyAssigned(false)
+            let maxIndex = groups.length
+            let randomIndex = generateRandomIndex(0,maxIndex)
+            let dataToStore = {...groups[randomIndex], isAlreadyAssigned: true}
+            setSelectedGroup(groups[randomIndex])
+            localStorage.setItem('cusat-events-radar-data', JSON.stringify(dataToStore));
+        }
     }
 
     let [selectedGroup,setSelectedGroup] = useState(null)
+    let [isGroupAlreadyAssigned,setIsGroupAlreadyAssigned] = useState(false)
     useEffect(()=>{
         setTimeout(() => {
             selectGroups();
@@ -37,19 +50,35 @@ let CodeOfConduct = () => {
         }, 2000);
     },[])
 
-   
+   let joinNowButtonOnClick = () =>{
+       window.location.href = selectedGroup.groupLink
+   }
 
     return (<>
         {
             selectedGroup && 
                 <StyledGroupLoader>
                         <div className="post-fetch">
-                            <p>Cool! We have assigned a group for you:</p>
-                            <p><strong>{selectedGroup.groupName}</strong></p>
+                            {
+                                isGroupAlreadyAssigned &&
+                                <p><strong>Welcome Back!</strong> We already had assigned a group for you:</p>
+                            }
+                            {
+                                !isGroupAlreadyAssigned &&
+                                <p>Cool! We have assigned a group for you:</p>
+                            }
+                            <p className="cer-group-name"><strong>{selectedGroup.groupName}</strong></p>
                             <button
-                                onClick={()=>{window.location.href = selectedGroup.groupLink}}
+                                onClick={joinNowButtonOnClick}
                             >Join Now!</button>
                             <p>Have fun with all the events and opportunities!</p> 
+                            <p className="cant-join-text">
+                                <strong>Can't Join? Facing issues? Let us know:</strong><br/>
+                                Naseem Shah: <a href="tel:+919544842728">9544842728</a>,<br/>
+                                Kiran P.K: <a href="tel:+917559014936">7559014936</a>,<br/>
+                                Fazil Haneefa: <a href="tel:+917559090892">7559090892</a><br/>
+                                <strong><em><a href="mailto:cusateventsradar@gmail.com">cusateventsradar@gmail.com</a></em></strong>
+                            </p>
                         </div>
                 </StyledGroupLoader>
         }
@@ -83,7 +112,17 @@ max-width: 500px;
 min-width: 200px;
 position: relative;
 overflow: hidden;
-
+overflow-y: auto;
+.cer-group-name{
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.42);
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+}
+.cant-join-text{
+    font-size: 12px;
+}
 .loading-group-spinner-container{
     display: flex;
     justify-content: center;
@@ -101,7 +140,10 @@ overflow: hidden;
 .post-fetch{
     p{
         text-align: center;
-        
+        color: balck;
+    }
+    a{
+        color: black;
     }
     button{
         display: flex;
@@ -118,7 +160,7 @@ overflow: hidden;
         color: white;
         font-weight: 900;
         font-family: 'Poppins', sans-serif;
-            font-size: 18px;
+        font-size: 18px;
         transition: all 0.5s ease;
         outline: none;
         margin: 40px auto;
