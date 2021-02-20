@@ -18,7 +18,7 @@ export default function Home() {
           gyroscope={true}
           tiltAngleXInitial={-90}
           tiltAngleYInitial={0}
-          tiltMaxAngleX={3}
+          tiltMaxAngleX={0}
           tiltMaxAngleY={8}
           glarePosition="all"
         >
