@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import whatsAppIcon from './assets/whatsapp.svg'
 import instagramIcon from './assets/instagram.svg'
-import Tilt from 'react-parallax-tilt'
+import Tilt from 'react-parallax-tilt';
+import {isMobile} from 'react-device-detect';
 
 export default function Home() {
   return (
@@ -14,11 +15,11 @@ export default function Home() {
           perspective={500}
           glareEnable={true}
           glareMaxOpacity={0.40}
-          scale={0.9}
+          scale={isMobile ? 1.0 : 0.9}
           gyroscope={true}
-          tiltAngleXInitial={-90}
+          tiltAngleXInitial={isMobile ? -90 : 0}
           tiltAngleYInitial={0}
-          tiltMaxAngleX={0}
+          tiltMaxAngleX={isMobile ? 0 : 8}
           tiltMaxAngleY={8}
           glarePosition="all"
         >
@@ -47,7 +48,12 @@ export default function Home() {
                 Join WhatsApp Group
               
             </Link>
-            </div>      
+            </div>
+            { isMobile &&
+              <div className="comeback-indesktop">
+                <p>Come back in desktop browser for best experience of the website :)</p>
+              </div>
+            }      
         </Tilt>  
     </StyledPage>
   );
@@ -221,6 +227,14 @@ let StyledPage = styled.div`
     display: flex;
     align-items: center;
     transform-style: preserve-3d;
+  }
+  .comeback-indesktop{
+    margin-top: 30px;
+    p{
+      font-size: 10px;
+      text-align: center;
+    }
+
   }
 `
 
