@@ -1,6 +1,6 @@
 {
   "homepage": "https://cusat-events-radar.web.app/",
-  "name": "website",
+  "name": "cusat-events-radar-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
