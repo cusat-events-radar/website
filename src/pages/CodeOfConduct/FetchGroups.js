@@ -40,7 +40,7 @@ let CodeOfConduct = () => {
             selectGroups();
             clearTimeout();
         }, 2000);
-    }, [])
+    })
 
     let joinNowButtonOnClick = () => {
         window.location.href = selectedGroup.groupLink
