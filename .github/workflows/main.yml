@@ -1,0 +1,30 @@
+name: deploy-workflow
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+jobs:
+  deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checks out repo
+        uses: actions/checkout@v2
+      - name: Setup Node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+          # cache: 'npm' # https://github.com/actions/setup-node#caching-packages-dependencies
+      - name: Install Dependancies
+        run: yarn install --prefer-offline --frozen-lockfile
+      - run: yarn build
+      - name: Push Build
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: build # The branch name where you want to push the assets
+          FOLDER: build # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Build: {msg}" # The commit message
+      
