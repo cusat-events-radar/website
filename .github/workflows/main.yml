@@ -17,7 +17,7 @@ jobs:
           cache: 'yarn'
           # cache: 'npm' # https://github.com/actions/setup-node#caching-packages-dependencies
       - name: Install Dependancies
-        run: yarn install --prefer-offline --frozen-lockfile
+        run: yarn install
       - run: yarn build
       - name: Push Build
         uses: s0/git-publish-subdir-action@develop

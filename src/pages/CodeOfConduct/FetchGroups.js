@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import logo from '../../logo.svg'
 
@@ -11,79 +11,78 @@ let CodeOfConduct = () => {
         },
     ];
 
-    let generateRandomIndex = (mn, mx) => {  
-        return (Math.floor(Math.random() * (mx - mn) + mn));  
-    } 
+    let generateRandomIndex = (mn, mx) => {
+        return (Math.floor(Math.random() * (mx - mn) + mn));
+    }
 
-    let selectGroups = () =>{
-        let localStorageRaw= localStorage.getItem('cusat-events-radar-data');
-        let localStorageData= JSON.parse(localStorageRaw) 
+    let selectGroups = () => {
+        let localStorageRaw = localStorage.getItem('cusat-events-radar-data');
+        let localStorageData = JSON.parse(localStorageRaw)
         setIsGroupAlreadyAssigned(false)
-        if(localStorageRaw!==null && localStorageData.isAlreadyAssigned===true){
+        if (localStorageRaw !== null && localStorageData.isAlreadyAssigned === true) {
             setIsGroupAlreadyAssigned(true)
             setSelectedGroup(localStorageData)
             console.log(localStorageData);
-        }else{
+        } else {
             setIsGroupAlreadyAssigned(false)
             let maxIndex = groups.length
-            let randomIndex = generateRandomIndex(0,maxIndex)
+            let randomIndex = generateRandomIndex(0, maxIndex)
             let dataToStore = {...groups[randomIndex], isAlreadyAssigned: true}
             setSelectedGroup(groups[randomIndex])
             localStorage.setItem('cusat-events-radar-data', JSON.stringify(dataToStore));
         }
     }
 
-    let [selectedGroup,setSelectedGroup] = useState(null)
-    let [isGroupAlreadyAssigned,setIsGroupAlreadyAssigned] = useState(false)
-    useEffect(()=>{
+    let [selectedGroup, setSelectedGroup] = useState(null)
+    let [isGroupAlreadyAssigned, setIsGroupAlreadyAssigned] = useState(false)
+    useEffect(() => {
         setTimeout(() => {
             selectGroups();
-            clearTimeout();        
+            clearTimeout();
         }, 2000);
-    },[])
+    }, [])
 
-   let joinNowButtonOnClick = () =>{
-       window.location.href = selectedGroup.groupLink
-   }
+    let joinNowButtonOnClick = () => {
+        window.location.href = selectedGroup.groupLink
+    }
 
     return (<>
-        {
-            selectedGroup && 
+            {
+                selectedGroup &&
                 <StyledGroupLoader>
-                        <div className="post-fetch">
-                            {
-                                isGroupAlreadyAssigned &&
-                                <p><strong>Welcome Back!</strong> We already had assigned a group for you:</p>
-                            }
-                            {
-                                !isGroupAlreadyAssigned &&
-                                <p>Cool! We have assigned a group for you:</p>
-                            }
-                            <p className="cer-group-name"><strong>{selectedGroup.groupName}</strong></p>
-                            <button
-                                onClick={joinNowButtonOnClick}
-                            >Join Now!</button>
-                            <p>Have fun with all the events and opportunities!</p> 
-                            <p className="cant-join-text">
-                                <strong>Can't Join? Facing issues? Let us know:</strong><br/>
-                                Naseem Shah: <a href="tel:+919544842728">9544842728</a>,<br/>
-                                Kiran P.K: <a href="tel:+917559014936">7559014936</a>,<br/>
-                                Fazil Haneefa: <a href="tel:+917559090892">7559090892</a><br/>
-                                <strong><em><a href="mailto:cusateventsradar@gmail.com">cusateventsradar@gmail.com</a></em></strong>
-                            </p>
-                        </div>
+                    <div className="post-fetch">
+                        {
+                            isGroupAlreadyAssigned &&
+                            <p><strong>Welcome Back!</strong> We already had assigned a group for you:</p>
+                        }
+                        {
+                            !isGroupAlreadyAssigned &&
+                            <p>Cool! We have assigned a group for you:</p>
+                        }
+                        <p className="cer-group-name"><strong>{selectedGroup.groupName}</strong></p>
+                        <button
+                            onClick={joinNowButtonOnClick}
+                        >Join Now!
+                        </button>
+                        <p>Have fun with all the events and opportunities!</p>
+                        <p className="cant-join-text">
+                            <strong>Can't Join? Facing issues? Let us know:</strong><br/>
+                            Sunith VS: <a href="tel:+919072124291">9072124291</a>,<br/>
+                            <strong><em><a href="mailto:cusateventsradar@gmail.com">cusateventsradar@gmail.com</a></em></strong>
+                        </p>
+                    </div>
                 </StyledGroupLoader>
-        }
-        {
-            !selectedGroup &&
+            }
+            {
+                !selectedGroup &&
                 <StyledGroupLoader>
-                        <div className="loading-group-spinner-container">
-                            <img className="spinner-logo" src={logo} alt="CUSAT Events Radar Logo"/>
-                            <p>Fetching a group link for you...</p>
-                        </div>
+                    <div className="loading-group-spinner-container">
+                        <img className="spinner-logo" src={logo} alt="CUSAT Events Radar Logo"/>
+                        <p>Fetching a group link for you...</p>
+                    </div>
                 </StyledGroupLoader>
-        }
-    </>
+            }
+        </>
     );
 }
 
