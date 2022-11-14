@@ -6,16 +6,8 @@ import logo from '../../logo.svg'
 let CodeOfConduct = () => {
     let groups = [
         {
-            groupName: 'Cusat Events Radar #️⃣3️⃣',
-            groupLink: 'https://chat.whatsapp.com/EcOOIPqmyqTBgNC37zduM6'
-        },
-        {
-            groupName: 'Cusat Events Radar #️⃣4️⃣',
-            groupLink: 'https://chat.whatsapp.com/G3pVSXuxX23GkXkYbntFXu'
-        },
-        {
-            groupName: 'Cusat Events Radar #️⃣5️⃣',
-            groupLink: 'https://chat.whatsapp.com/HlODCw0YAfLBvohHnfqZnE'
+            groupName: 'CUSAT EVENTS RADAR ',
+            groupLink: 'https://chat.whatsapp.com/Fnf95LBztDWJ84nJSTgPHJ'
         },
     ];
 
