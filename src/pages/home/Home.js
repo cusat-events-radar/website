@@ -1,62 +1,61 @@
 import React from "react";
 import logo from '../../logo.svg'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import whatsAppIcon from './assets/whatsapp.svg'
 import instagramIcon from './assets/instagram.svg'
 import Tilt from 'react-parallax-tilt';
 import {isMobile} from 'react-device-detect';
+import {Radar} from "../../components/radar/Radar";
 
 export default function Home() {
-  return (
-    <StyledPage>
-        <Tilt
-          className="home-parallax-tilt"
-          perspective={500}
-          glareEnable={true}
-          glareMaxOpacity={0.40}
-          scale={isMobile ? 1.0 : 0.9}
-          gyroscope={true}
-          tiltAngleXInitial={isMobile ? -90 : 0}
-          tiltAngleYInitial={0}
-          tiltMaxAngleX={isMobile ? 0 : 8}
-          tiltMaxAngleY={8}
-          glarePosition="all"
-        >
-          <div className="home-header-container">
-            <img className="home-logo" src={logo} alt="CUSAT Events Radar Logo"/>
-            <div>
-              <h1 className="home-welcome">Welcome to</h1>
-              <h1 className="home-header">CUSAT</h1>
-              <h1 className="home-header">EVENTS</h1>
-              <h1 className="home-header">RADAR</h1>
-            </div>
 
-          </div>
-          <p className="home-sub-header">Events and opportunities in and out of CUSAT updated daily.</p>
-          <div className="home-buttons-container">
-            <button
-              className="home-buttons magic-hover magic-hover__square"
-              onClick={()=>{window.location.href = 'https://www.instagram.com/cusat_events_radar'}}
+    return (
+        <StyledPage>
+            <Tilt
+                className="home-parallax-tilt"
+                perspective={500}
+                glareEnable={true}
+                glareMaxOpacity={0.40}
+                scale={isMobile ? 1.0 : 0.9}
+                gyroscope={true}
+                tiltAngleXInitial={isMobile ? -90 : 0}
+                tiltAngleYInitial={0}
+                tiltMaxAngleX={isMobile ? 0 : 10}
+                tiltMaxAngleY={10}
+                glarePosition="all"
             >
-              <img src={instagramIcon} alt=""/>
-              Browse Events on Instagram
-            </button>
-            <Link className="home-buttons magic-hover magic-hover__square"  to="/code-of-conduct">
-              
-                <img src={whatsAppIcon} alt=""/>
-                Join WhatsApp Group
-              
-            </Link>
-            </div>
-            { isMobile &&
-              <div className="comeback-indesktop">
-                <p>Come back in desktop browser for best experience of the website :)</p>
-              </div>
-            }      
-        </Tilt>  
-    </StyledPage>
-  );
+                <div className="home-header-container">
+                    <Radar/>
+
+
+                </div>
+                <p className="home-sub-header">Events and opportunities in and out of CUSAT updated daily.</p>
+                <div className="home-buttons-container">
+                    <button
+                        className="home-buttons magic-hover magic-hover__square"
+                        onClick={() => {
+                            window.location.href = 'https://www.instagram.com/cusat_events_radar'
+                        }}
+                    >
+                        <img src={instagramIcon} alt=""/>
+                        Browse Events on Instagram
+                    </button>
+                    <Link className="home-buttons magic-hover magic-hover__square" to="/code-of-conduct">
+
+                        <img src={whatsAppIcon} alt=""/>
+                        Join WhatsApp Group
+
+                    </Link>
+                </div>
+                {isMobile &&
+                    <div className="comeback-indesktop">
+                        <p>Come back in desktop browser for best experience of the website :)</p>
+                    </div>
+                }
+            </Tilt>
+        </StyledPage>
+    );
 }
 
 let StyledPage = styled.div`
