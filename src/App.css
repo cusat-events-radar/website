@@ -15,10 +15,7 @@ body #magicMouseCursor, #magicPointer {
     background: linear-gradient(#333, #111);
     box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5),
     inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
-
     border-radius: 100%;
-
-
     top: 50%;
     display: flex;
     justify-content: center;
