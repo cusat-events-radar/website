@@ -1,14 +1,16 @@
 import Sketch from "sketch-js";
 
-const height = 200;
-const width = 200;
+
+const height = 250;
+const width = 250;
+
 
 export const getContext = (radarDiv) => {
     let diameter = Math.min(height, width, 850),
         radius = diameter / 2,
         padding = 14,
         ctx = Sketch.create({
-            container: radarDiv,
+            container: radarDiv,  
             fullscreen: false,
             width: diameter,
             height: diameter
@@ -42,7 +44,6 @@ export const getContext = (radarDiv) => {
             ctx.lineWidth = lineWidth;
             ctx.stroke();
         }
-
     };
 
     let renderGrid = function () {
