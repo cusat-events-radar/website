@@ -90,7 +90,7 @@ canvas {
     width: 20px;
     height: 20px;
     border-radius: 50px;
-    border: 2px solid #642577;
+    border: 1px solid #642577;
     object-fit: cover;
     position: fixed;
     display: flex;
@@ -153,4 +153,20 @@ canvas {
     bottom: 15%;
     left: 15%;
     transform: translateX(-50%) translateY(50%);
+}
+
+.blink-image {
+    -webkit-animation: blink normal 1.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

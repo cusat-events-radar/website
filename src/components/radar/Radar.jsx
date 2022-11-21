@@ -32,11 +32,15 @@ export function Radar() {
       name : "e5",
       date : '12/25/2022',
       imgUrl: event1
-    }
-    ,
+    },
     {
       name : "e6",
       date : '12/11/2022',
+      imgUrl: event1
+    },
+    {
+      name : "e7",
+      date : '11/11/2022',
       imgUrl: event1
     }
   ];

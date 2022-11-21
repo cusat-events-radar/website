@@ -13,7 +13,7 @@ const Events = (props) => {
   if (props.class) {
     return (
       <div className={props.class}>
-        <img src={props.imgUrl} className={`circleImg ${getPositon()}`}></img>
+        <img src={props.imgUrl} className={`circleImg blink-image ${getPositon()}`}></img>
       </div>
     )
   }
